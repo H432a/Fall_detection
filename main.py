@@ -5,7 +5,8 @@ from fall_detection import detect_fall
 from utils import draw_bboxes, play_alert_sound
 
 # Load the YOLO model
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov8s.pt')
+from ultralytics import YOLO
+model = YOLO('yolov8s.pt')  # Specify the path to your model
 
 def main():
     # Initialize video capture (webcam)
@@ -18,10 +19,13 @@ def main():
         
         # YOLO detection
         results = model(frame)
-        bboxes = results.xyxy[0].numpy()  # Bounding boxes
 
-        # Detect human (class 0)
-        humans = [bbox for bbox in bboxes if int(bbox[5]) == 0]
+        # Get bounding boxes and class IDs
+        bboxes = results[0].boxes.xyxy.numpy()  # Bounding boxes (x1, y1, x2, y2)
+        class_ids = results[0].boxes.cls.numpy()  # Class IDs for each detection
+        
+        # Detect human (class ID 0 is typically 'person' in COCO dataset)
+        humans = [bbox for bbox, class_id in zip(bboxes, class_ids) if int(class_id) == 0]
         
         # ML-based fall detection
         is_fall = detect_fall(humans)
@@ -45,3 +49,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
