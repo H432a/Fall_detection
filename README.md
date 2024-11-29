@@ -2,7 +2,7 @@
 
 ## Abstract
 To protect the elderly against harmful falling events, automatic fall detection solutions have been developed. This project uses the YOLO (You Only Look Once) object detection model to detect potential falls in a video stream. The system identifies instances where a person’s proportions indicate a sudden change, possibly due to a fall.
-<br>Please look into the attached file - pythonpaper.pdf in the repository
+<br><br>Please look into the attached file - pythonpaper.pdf in the repository
 ### Fall Detection Methods
 Several solutions have been developed to detect fall incidences, typically relying on:
 1. Wearable devices
