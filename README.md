@@ -35,7 +35,7 @@ The YOLOv5 architecture consists of 4 compartments:
 2. **Backbone**: Extracts high-level features using convolutional layers like CSPDarknet53 or EfficientNetV2.
 3. **Neck**: Refines features for better object detection with modules like PANet or BiFPN.
 4. **Head**: Predicts bounding boxes, objectness scores, and class probabilities.
-![image](https://github.com/user-attachments/assets/a5984d63-618b-4589-ad3c-b52cad703c71)
+![image](https://github.com/user-attachments/assets/a5984d63-618b-4589-ad3c-b52cad703c71)<br>
 By leveraging these components, YOLOv5 provides efficient feature extraction and accurate object detection for real-time fall detection.
 
 ## Output
